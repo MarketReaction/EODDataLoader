@@ -10,6 +10,7 @@ import uk.co.jassoft.markets.exceptions.eoddata.GetQuoteFailedException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
+import org.springframework.beans.factory.annotation.Value;
 
 import javax.xml.soap.SOAPException;
 import javax.xml.ws.BindingProvider;
