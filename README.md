@@ -1,1 +1,2 @@
 [![Build Status](https://travis-ci.org/MarketReaction/EODDataLoader.svg?branch=master)](https://travis-ci.org/MarketReaction/EODDataLoader)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/afda012d78d141948a12daf857b7a0c9)](https://www.codacy.com/app/jonny-shaw/EODDataLoader?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=MarketReaction/EODDataLoader&amp;utm_campaign=Badge_Grade)
