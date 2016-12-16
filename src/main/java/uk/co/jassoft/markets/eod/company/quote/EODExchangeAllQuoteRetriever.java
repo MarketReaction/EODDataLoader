@@ -85,12 +85,12 @@ public class EODExchangeAllQuoteRetriever {
             Quote existingQuote = quoteRepository.findByCompanyAndDate(company.getId(), quote.getDate());
             if (existingQuote == null) {
                 saveQuote(quote);
-                LOG.info("Saving Quote data for company [{}:{}] and date [{}]", exchange.getCode(), company.getTickerSymbol(), quote.getDate());
+                LOG.debug("Saving Quote data for company [{}:{}] and date [{}]", exchange.getCode(), company.getTickerSymbol(), quote.getDate());
             }
             else if(!quote.equals(existingQuote)) {
                 quote.setId(existingQuote.getId());
                 saveQuote(quote);
-                LOG.info("Updating Quote data for company [{}:{}] and date [{}]", exchange.getCode(), company.getTickerSymbol(), quote.getDate());
+                LOG.debug("Updating Quote data for company [{}:{}] and date [{}]", exchange.getCode(), company.getTickerSymbol(), quote.getDate());
             }
 
         });
