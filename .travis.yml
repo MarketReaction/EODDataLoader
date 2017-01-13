@@ -1,18 +1,16 @@
 language: java
 jdk:
   - oraclejdk8
-sudo: false
 
 services:
   - docker
 
-cache:
-  directories:
-  - $HOME/.m2
-
 after_success:
-  - docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
-  - mvn install -DskipTests -Pdefault,docker
-  - mvn deploy -DskipTests -Pdocker
-  - docker tag marketreaction/eod-data-loader:$TRAVIS_BUILD_NUMBER marketreaction/eod-data-loader:latest
-  - docker push marketreaction/eod-data-loader:latest
+  - >
+    if [ "$TRAVIS_BRANCH" == "master" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
+      docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
+      mvn install -DskipTests -Pdefault,docker
+      mvn deploy -DskipTests -Pdocker
+      docker tag marketreaction/eod-data-loader:$TRAVIS_BUILD_NUMBER marketreaction/eod-data-loader:latest
+      docker push marketreaction/eod-data-loader:latest
+    fi
